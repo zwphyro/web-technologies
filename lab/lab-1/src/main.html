@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Tetris</title>
+    <script src="main_script.js" type="module"></script>
+</head>
+<body>
+<div class="main">
+    <img src="assets/images/main-background.png" alt="Tetris" style="position: fixed; top: 0; left: 0; z-index: -1;">
+    <label>
+        <input class="username" style="top: 47px; left: 560px;" id="username" disabled value="">
+    </label>
+    <div class="custom_text" style="top: 128px; left: 530px; width: 260px; text-align: right;" id="score">
+        0
+    </div>
+    <div class="custom_text" style="top: 198px; left: 562px; width: 190px; text-align: center;">
+        SAVED
+    </div>
+    <div class="custom_text" style="top: 462px; left: 562px; width: 190px; text-align: center;">
+        NEXT
+    </div>
+    <canvas class="field" id="field">
+    </canvas>
+    <div class="tetramino_display" style="left: 575px; top:530px;" id="next">
+    </div>
+    <div class="tetramino_display" style="left: 575px; top:265px;" id="saved">
+    </div>
+</div>
+</body>
+</html>

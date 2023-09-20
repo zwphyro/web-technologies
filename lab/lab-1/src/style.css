@@ -1,0 +1,232 @@
+@font-face
+{
+    font-family: "Half Bold Pixel-7";
+    src: local("Half Bold Pixel-7"), url("assets/fonts/half_bold_pixel-7.ttf");
+}
+
+.preview
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #8cad28;
+    color: #214231;
+    font-family: "Half Bold Pixel-7", monospace;
+    width: 800px;
+    height: 720px;
+    outline: 10px solid;
+    border-radius: 5px;
+}
+
+.start_button
+{
+    text-align: center;
+    width: 110px;
+    height: 25px;
+    color: #214231;
+    font-size: 25px;
+    font-family: "Half Bold Pixel-7", monospace;
+    border: 0;
+    background-color: #8cad28;
+}
+
+.start_button:hover
+{
+    color: #597926;
+}
+
+.start_button:active
+{
+    color: #597926;
+}
+
+.start_button:disabled
+{
+    color: #597926;
+}
+
+.username_input
+{
+    background-color: #8cad28;
+    font-size: 25px;
+    color: #214231;
+    font-family: "Half Bold Pixel-7", monospace;
+    border-bottom-width: 3px;
+    border-bottom-color: #597926;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+}
+
+.main
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #214231;
+    color: #214231;
+    font-family: "Half Bold Pixel-7", monospace;
+    width: 800px;
+    height: 720px;
+    outline: 10px solid;
+    border-radius: 5px;
+}
+
+.username
+{
+    position: fixed;
+    text-align: center;
+    width: 191px;
+    height: 25px;
+    color: #214231;
+    font-size: 30px;
+    font-family: "Half Bold Pixel-7", monospace;
+    border: 0;
+    background-color: #8cad28;
+}
+
+.username:hover
+{
+    color: #597926;
+}
+
+.username:active
+{
+    color: #597926;
+}
+
+.custom_text
+{
+    position: fixed;
+    text-align: center;
+    width: 191px;
+    height: 25px;
+    color: #214231;
+    font-size: 30px;
+    font-family: "Half Bold Pixel-7", monospace;
+    border: 0;
+    background-color: #8cad28;
+}
+
+.field
+{
+    position: fixed;
+    left: 80px;
+    width: 400px;
+    height: 720px;
+}
+
+.empty_cell
+{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+.tetramino_display
+{
+    position: fixed;
+    width: 165px;
+    height: 165px;
+}
+
+.tetramino_I
+{
+    background-image: url("assets/images/tetramino-I.png");
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+.tetramino_J
+{
+    background-image: url("assets/images/tetramino-J.png");
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+.tetramino_L
+{
+    background-image: url("assets/images/tetramino-L.png");
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+.tetramino_S
+{
+    background-image: url("assets/images/tetramino-S.png");
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+.tetramino_Z
+{
+    background-image: url("assets/images/tetramino-Z.png");
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+.tetramino_O
+{
+    background-image: url("assets/images/tetramino-O.png");
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+.tetramino_T
+{
+    background-image: url("assets/images/tetramino-T.png");
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+.score_digits
+{
+    position: fixed;
+    text-align: center;
+    color: #214231;
+    font-size: 30px;
+    font-family: "Half Bold Pixel-7", monospace;
+    border: 0;
+    background-color: #8cad28;
+    width: 80px;
+    height: 40px;
+    top: 195px;
+    left: 60px;
+}
+
+.name_text
+{
+    position: relative;
+    text-align: left;
+    width: 265px;
+    height: 40px;
+    color: #214231;
+    font-size: 30px;
+    font-family: "Half Bold Pixel-7", monospace;
+    border: 0;
+    background-color: #8cad28;
+}
+
+.score_text
+{
+    position: relative;
+    text-align: right;
+    width: 265px;
+    height: 40px;
+    color: #214231;
+    font-size: 30px;
+    font-family: "Half Bold Pixel-7", monospace;
+    border: 0;
+    background-color: #8cad28;
+}
