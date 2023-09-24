@@ -127,64 +127,64 @@
     height: 40px;
 }
 
-.tetramino_display
+.tetromino_display
 {
     position: fixed;
     width: 165px;
     height: 165px;
 }
 
-.tetramino_I
+.tetromino_I
 {
-    background-image: url("assets/images/tetramino-I.png");
+    background-image: url("assets/images/tetromino-I.png");
     position: absolute;
     width: 40px;
     height: 40px;
 }
 
-.tetramino_J
+.tetromino_J
 {
-    background-image: url("assets/images/tetramino-J.png");
+    background-image: url("assets/images/tetromino-J.png");
     position: absolute;
     width: 40px;
     height: 40px;
 }
 
-.tetramino_L
+.tetromino_L
 {
-    background-image: url("assets/images/tetramino-L.png");
+    background-image: url("assets/images/tetromino-L.png");
     position: absolute;
     width: 40px;
     height: 40px;
 }
 
-.tetramino_S
+.tetromino_S
 {
-    background-image: url("assets/images/tetramino-S.png");
+    background-image: url("assets/images/tetromino-S.png");
     position: absolute;
     width: 40px;
     height: 40px;
 }
 
-.tetramino_Z
+.tetromino_Z
 {
-    background-image: url("assets/images/tetramino-Z.png");
+    background-image: url("assets/images/tetromino-Z.png");
     position: absolute;
     width: 40px;
     height: 40px;
 }
 
-.tetramino_O
+.tetromino_O
 {
-    background-image: url("assets/images/tetramino-O.png");
+    background-image: url("assets/images/tetromino-O.png");
     position: absolute;
     width: 40px;
     height: 40px;
 }
 
-.tetramino_T
+.tetromino_T
 {
-    background-image: url("assets/images/tetramino-T.png");
+    background-image: url("assets/images/tetromino-T.png");
     position: absolute;
     width: 40px;
     height: 40px;

@@ -1,3 +1,5 @@
+/* A class that implements data storage
+ */
 export class TetrisData
 {
     constructor()
@@ -9,12 +11,12 @@ export class TetrisData
         {
             this.field[i] = new Array(this.field_width).fill("empty_cell")
         }
-        this.next_tetramino = undefined
-        this.saved_tetramino = undefined
-        this.current_tetramino = undefined
-        this.current_tetramino_position = {x: 0, y: 0}
-        this.shadow_tetramino_position = {x: 0, y: 0}
-        this.removed_lines_amount = 0
+        this.next_tetromino = undefined
+        this.saved_tetromino = undefined
+        this.current_tetromino = undefined
+        this.current_tetromino_position = {x: 0, y: 0}
+        this.shadow_tetromino_position = {x: 0, y: 0}
+        this.removed_rows_amount = 0
         this.level = 0
         this.score = 0
     }

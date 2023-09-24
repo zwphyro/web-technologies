@@ -1,65 +1,66 @@
-import {TetraminoI, TetraminoJ, TetraminoL, TetraminoO, TetraminoS, TetraminoT, TetraminoZ} from "./Tetramino.js";
+import {TetrominoI, TetrominoJ, TetrominoL, TetrominoO, TetrominoS, TetrominoT, TetrominoZ} from "./Tetromino.js";
 
 const maximum_level = 20
-const different_tetramino_amount = 7
+const different_tetromino_amount = 7
 const level_time_step = 50
 
-
+/* A class that implements data changes in response to user requests
+ */
 export class TetrisModel
 {
     constructor(data, view)
     {
         this.data = data
         this.view = view
-        this.data.current_tetramino = this.getRandomTetramino()
-        this.data.next_tetramino = this.getRandomTetramino()
+        this.data.current_tetromino = this.getRandomTetromino()
+        this.data.next_tetromino = this.getRandomTetromino()
         this.save_allowed = true
         this.restartFallTimeout()
-        this.calculateShadowTetraminoPosition()
+        this.calculateShadowTetrominoPosition()
         this.view.update()
     }
 
-    moveCurrentTetraminoDown()
+    moveCurrentTetrominoDown()
     {
         this.restartFallTimeout()
-        this.data.current_tetramino_position.y += 1
-        if (!this.checkCurrentTetraminoPosition())
+        this.data.current_tetromino_position.y += 1
+        if (!this.checkCurrentTetrominoPosition())
         {
-            this.data.current_tetramino_position.y -= 1
-            this.placeCurrentTetramino()
-            this.switchToNextTetramino()
+            this.data.current_tetromino_position.y -= 1
+            this.placeCurrentTetromino()
+            this.switchToNextTetromino()
         }
         this.view.update()
     }
 
-    moveCurrentTetraminoRight()
+    moveCurrentTetrominoRight()
     {
-        this.data.current_tetramino_position.x += 1
-        if (!this.checkCurrentTetraminoPosition())
+        this.data.current_tetromino_position.x += 1
+        if (!this.checkCurrentTetrominoPosition())
         {
-            this.data.current_tetramino_position.x -= 1
+            this.data.current_tetromino_position.x -= 1
         }
-        this.calculateShadowTetraminoPosition()
+        this.calculateShadowTetrominoPosition()
         this.view.update()
     }
 
-    moveCurrentTetraminoLeft()
+    moveCurrentTetrominoLeft()
     {
-        this.data.current_tetramino_position.x -= 1
-        if (!this.checkCurrentTetraminoPosition())
+        this.data.current_tetromino_position.x -= 1
+        if (!this.checkCurrentTetrominoPosition())
         {
-            this.data.current_tetramino_position.x += 1
+            this.data.current_tetromino_position.x += 1
         }
-        this.calculateShadowTetraminoPosition()
+        this.calculateShadowTetrominoPosition()
         this.view.update()
     }
 
-    checkCurrentTetraminoPosition()
+    checkCurrentTetrominoPosition()
     {
-        for (let point of this.data.current_tetramino.current_state)
+        for (let point of this.data.current_tetromino.current_state)
         {
-            let x = point.x + this.data.current_tetramino_position.x
-            let y = point.y + this.data.current_tetramino_position.y
+            let x = point.x + this.data.current_tetromino_position.x
+            let y = point.y + this.data.current_tetromino_position.y
             if (y < 0 && !(x < 0 || x >= this.data.field_width || y >= this.data.field_height))
             {
                 continue
@@ -73,67 +74,67 @@ export class TetrisModel
         return true
     }
 
-    getRandomTetramino()
+    getRandomTetromino()
     {
-        switch (Math.floor(Math.random() * different_tetramino_amount))
+        switch (Math.floor(Math.random() * different_tetromino_amount))
         {
             case 0:
-                return new TetraminoI()
+                return new TetrominoI()
             case 1:
-                return new TetraminoJ()
+                return new TetrominoJ()
             case 2:
-                return new TetraminoL()
+                return new TetrominoL()
             case 3:
-                return new TetraminoS()
+                return new TetrominoS()
             case 4:
-                return new TetraminoZ()
+                return new TetrominoZ()
             case 5:
-                return new TetraminoO()
+                return new TetrominoO()
             case 6:
-                return new TetraminoT()
+                return new TetrominoT()
         }
     }
 
     restartFallTimeout(timeout = 1000 - level_time_step * this.data.level)
     {
         clearTimeout(this.timeout_id)
-        this.timeout_id = setTimeout(() => this.moveCurrentTetraminoDown(), timeout)
+        this.timeout_id = setTimeout(() => this.moveCurrentTetrominoDown(), timeout)
     }
 
-    calculateShadowTetraminoPosition()
+    calculateShadowTetrominoPosition()
     {
-        let temporary = {...this.data.current_tetramino_position}
-        while (this.checkCurrentTetraminoPosition())
+        let temporary = {...this.data.current_tetromino_position}
+        while (this.checkCurrentTetrominoPosition())
         {
-            this.data.current_tetramino_position.y += 1
+            this.data.current_tetromino_position.y += 1
         }
-        this.data.current_tetramino_position.y -= 1
-        this.data.shadow_tetramino_position = this.data.current_tetramino_position
-        this.data.current_tetramino_position = temporary
+        this.data.current_tetromino_position.y -= 1
+        this.data.shadow_tetromino_position = this.data.current_tetromino_position
+        this.data.current_tetromino_position = temporary
     }
 
-    dropCurrentTetramino()
+    dropCurrentTetromino()
     {
         this.restartFallTimeout()
-        this.data.current_tetramino_position = this.data.shadow_tetramino_position
-        this.placeCurrentTetramino()
-        this.switchToNextTetramino()
+        this.data.current_tetromino_position = this.data.shadow_tetromino_position
+        this.placeCurrentTetromino()
+        this.switchToNextTetromino()
         this.view.update()
     }
 
-    placeCurrentTetramino()
+    placeCurrentTetromino()
     {
         this.save_allowed = true
-        for (let point of this.data.current_tetramino.current_state)
+        for (let point of this.data.current_tetromino.current_state)
         {
-            let x = point.x + this.data.current_tetramino_position.x
-            let y = point.y + this.data.current_tetramino_position.y
-            this.data.field[y][x] = this.data.current_tetramino.name
+            let x = point.x + this.data.current_tetromino_position.x
+            let y = point.y + this.data.current_tetromino_position.y
+            this.data.field[y][x] = this.data.current_tetromino.name
         }
-        this.removeFullRows()
+        this.removeCompleteRows()
     }
 
-    removeFullRows()
+    removeCompleteRows()
     {
         let i = 0
         let removed_rows_amount = 0
@@ -196,64 +197,64 @@ export class TetrisModel
                 break
         }
         this.data.score += base * (this.data.level + 1)
-        this.data.removed_lines_amount += removed_rows_amount
-        // level increases every ten removed lines
-        this.data.level = Math.min(Math.floor(this.data.removed_lines_amount / 10), maximum_level)
+        this.data.removed_rows_amount += removed_rows_amount
+        // level increases every ten removed rows
+        this.data.level = Math.min(Math.floor(this.data.removed_rows_amount / 10), maximum_level)
     }
 
-    switchToNextTetramino()
+    switchToNextTetromino()
     {
-        this.data.current_tetramino_position = {x: 0, y: 0}
-        this.data.current_tetramino = this.data.next_tetramino
-        this.data.next_tetramino = this.getRandomTetramino()
-        if (!this.checkCurrentTetraminoPosition())
+        this.data.current_tetromino_position = {x: 0, y: 0}
+        this.data.current_tetromino = this.data.next_tetromino
+        this.data.next_tetromino = this.getRandomTetromino()
+        if (!this.checkCurrentTetrominoPosition())
         {
             this.gameOver()
         }
-        this.calculateShadowTetraminoPosition()
+        this.calculateShadowTetrominoPosition()
     }
 
-    switchToSavedTetramino()
+    switchToSavedTetromino()
     {
         if (!this.save_allowed)
         {
             return
         }
         this.save_allowed = false
-        if (this.data.saved_tetramino === undefined)
+        if (this.data.saved_tetromino === undefined)
         {
-            this.data.saved_tetramino = this.data.current_tetramino
-            this.switchToNextTetramino()
+            this.data.saved_tetromino = this.data.current_tetromino
+            this.switchToNextTetromino()
             this.view.update()
             return
         }
-        this.data.current_tetramino_position = {x: 0, y: 0}
-        let temporary = this.data.current_tetramino
-        this.data.current_tetramino = this.data.saved_tetramino
-        this.data.saved_tetramino = temporary
-        this.calculateShadowTetraminoPosition()
+        this.data.current_tetromino_position = {x: 0, y: 0}
+        let temporary = this.data.current_tetromino
+        this.data.current_tetromino = this.data.saved_tetromino
+        this.data.saved_tetromino = temporary
+        this.calculateShadowTetrominoPosition()
         this.view.update()
     }
 
-    rotateCurrentTetraminoRight()
+    rotateCurrentTetrominoRight()
     {
-        this.data.current_tetramino.rotateRight()
-        if (!this.checkCurrentTetraminoPosition())
+        this.data.current_tetromino.rotateRight()
+        if (!this.checkCurrentTetrominoPosition())
         {
-            this.data.current_tetramino.rotateLeft()
+            this.data.current_tetromino.rotateLeft()
         }
-        this.calculateShadowTetraminoPosition()
+        this.calculateShadowTetrominoPosition()
         this.view.update()
     }
 
-    rotateCurrentTetraminoLeft()
+    rotateCurrentTetrominoLeft()
     {
-        this.data.current_tetramino.rotateLeft()
-        if (!this.checkCurrentTetraminoPosition())
+        this.data.current_tetromino.rotateLeft()
+        if (!this.checkCurrentTetrominoPosition())
         {
-            this.data.current_tetramino.rotateRight()
+            this.data.current_tetromino.rotateRight()
         }
-        this.calculateShadowTetraminoPosition()
+        this.calculateShadowTetrominoPosition()
         this.view.update()
     }
 

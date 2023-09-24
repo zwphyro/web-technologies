@@ -7,9 +7,6 @@ server
     ssl_certificate /etc/ssl/certs/testdomain.localhost.crt;
     ssl_certificate_key /etc/ssl/private/testdomain.localhost.key;
 
-    ssl_session_cache shared:SSL:1m;
-    ssl_session_timeout 5m;
-
     location /
     {
         root /home/zephyro/LETI/web-technologies/lab/lab-1/src;

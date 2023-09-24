@@ -17,29 +17,29 @@ function proceedKeyDown(event)
     {
         case 'k':
         case 'ArrowUp':
-            model.dropCurrentTetramino()
+            model.dropCurrentTetromino()
             break
         case 'j':
         case 'ArrowDown':
-            model.moveCurrentTetraminoDown()
+            model.moveCurrentTetrominoDown()
             break
         case 'h':
         case 'ArrowLeft':
-            model.moveCurrentTetraminoLeft()
+            model.moveCurrentTetrominoLeft()
             break
         case 'l':
         case 'ArrowRight':
-            model.moveCurrentTetraminoRight()
+            model.moveCurrentTetrominoRight()
             break
         case 'f':
         case ' ':
-            model.rotateCurrentTetraminoRight()
+            model.rotateCurrentTetrominoRight()
             break
         case 'd':
-            model.rotateCurrentTetraminoLeft()
+            model.rotateCurrentTetrominoLeft()
             break
         case 'Shift':
-            model.switchToSavedTetramino()
+            model.switchToSavedTetromino()
             break
         default:
             break;

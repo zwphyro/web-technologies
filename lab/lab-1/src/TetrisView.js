@@ -1,6 +1,8 @@
-const tetramino_size = 4
+const tetromino_size = 4
 const cell_size = 40
 
+/* A class that implements rendering
+ */
 export class TetrisView
 {
     constructor(data)
@@ -10,21 +12,21 @@ export class TetrisView
         this.field_element.width = this.data.field_width * cell_size
         this.field_element.height = this.data.field_height * cell_size
         this.field_context = this.field_element.getContext('2d')
-        this.tetramino_images = new Map()
-        this.initializeTetraminoImages()
-        this.next = new Array(tetramino_size)
+        this.tetromino_images = new Map()
+        this.initializeTetrominoImages()
+        this.next = new Array(tetromino_size)
         this.initializeNext()
-        this.saved = new Array(tetramino_size)
+        this.saved = new Array(tetromino_size)
         this.initializeSaved()
         this.score = document.getElementById("score")
     }
 
-    initializeTetraminoImages()
+    initializeTetrominoImages()
     {
         for (let value of 'IJLOSTZ')
         {
-            this.tetramino_images.set(`tetramino_${value}`, new Image())
-            this.tetramino_images.get(`tetramino_${value}`).src = `./assets/images/tetramino-${value}.png`
+            this.tetromino_images.set(`tetromino_${value}`, new Image())
+            this.tetromino_images.get(`tetromino_${value}`).src = `./assets/images/tetromino-${value}.png`
         }
     }
 
@@ -53,18 +55,18 @@ export class TetrisView
     update()
     {
         this.updateField()
-        if (this.data.current_tetramino !== undefined)
+        if (this.data.current_tetromino !== undefined)
         {
-            this.updateShadowTetramino()
-            this.updateCurrentTetramino()
+            this.updateShadowTetromino()
+            this.updateCurrentTetromino()
         }
-        if (this.data.next_tetramino !== undefined)
+        if (this.data.next_tetromino !== undefined)
         {
-            this.updateNextTetramino()
+            this.updateNextTetromino()
         }
-        if (this.data.saved_tetramino !== undefined)
+        if (this.data.saved_tetromino !== undefined)
         {
-            this.updateSavedTetramino()
+            this.updateSavedTetromino()
         }
         this.score.innerText = `${this.data.score}`
     }
@@ -79,66 +81,54 @@ export class TetrisView
                 if (this.data.field[i][j] === "empty_cell") continue
                 let x = j * cell_size
                 let y = i * cell_size
-                this.field_context.drawImage(this.tetramino_images.get(this.data.field[i][j]), x, y, cell_size, cell_size)
+                this.field_context.drawImage(this.tetromino_images.get(this.data.field[i][j]), x, y, cell_size, cell_size)
             }
         }
     }
 
-    updateCurrentTetramino()
+    updateCurrentTetromino()
     {
-        for (let point of this.data.current_tetramino.current_state)
+        for (let point of this.data.current_tetromino.current_state)
         {
-            let x = point.x + this.data.current_tetramino_position.x
-            let y = point.y + this.data.current_tetramino_position.y
-            if (x < 0 || y < 0 || x >= this.data.field_width || y >= this.data.field_height)
-            {
-                continue
-            }
-            x *= cell_size
-            y *= cell_size
-            this.field_context.drawImage(this.tetramino_images.get(this.data.current_tetramino.name), x, y, cell_size, cell_size)
+            let x = (point.x + this.data.current_tetromino_position.x) * cell_size
+            let y = (point.y + this.data.current_tetromino_position.y) * cell_size
+            this.field_context.drawImage(this.tetromino_images.get(this.data.current_tetromino.name), x, y, cell_size, cell_size)
         }
     }
 
-    updateShadowTetramino()
+    updateShadowTetromino()
     {
-        for (let point of this.data.current_tetramino.current_state)
+        for (let point of this.data.current_tetromino.current_state)
         {
-            let x = point.x + this.data.shadow_tetramino_position.x
-            let y = point.y + this.data.shadow_tetramino_position.y
-            if (x < 0 || y < 0 || x >= this.data.field_width || y >= this.data.field_height)
-            {
-                continue
-            }
-            x *= cell_size
-            y *= cell_size
+            let x = (point.x + this.data.shadow_tetromino_position.x) * cell_size
+            let y = (point.y + this.data.shadow_tetromino_position.y) * cell_size
             this.field_context.globalAlpha = 0.5
-            this.field_context.drawImage(this.tetramino_images.get(this.data.current_tetramino.name), x, y, cell_size, cell_size)
+            this.field_context.drawImage(this.tetromino_images.get(this.data.current_tetromino.name), x, y, cell_size, cell_size)
             this.field_context.globalAlpha = 1
         }
     }
 
-    updateNextTetramino()
+    updateNextTetromino()
     {
         for (let i = 0; i < this.next.length; i++)
         {
-            this.next[i].setAttribute("class", this.data.next_tetramino.name)
+            this.next[i].setAttribute("class", this.data.next_tetromino.name)
             // in the top and left positions added offset relative to fixation position
-            let top = cell_size * (this.data.next_tetramino.current_state[i].y + 1)
-            let left = cell_size * (this.data.next_tetramino.current_state[i].x - 3)
+            let top = cell_size * (this.data.next_tetromino.current_state[i].y + 1)
+            let left = cell_size * (this.data.next_tetromino.current_state[i].x - 3)
             this.next[i].style.top = `${top}px`
             this.next[i].style.left = `${left}px`
         }
     }
 
-    updateSavedTetramino()
+    updateSavedTetromino()
     {
         for (let i = 0; i < this.saved.length; i++)
         {
-            this.saved[i].setAttribute("class", this.data.saved_tetramino.name)
+            this.saved[i].setAttribute("class", this.data.saved_tetromino.name)
             // in the top and left positions added offset relative to fixation position
-            let top = cell_size * (this.data.saved_tetramino.current_state[i].y + 1)
-            let left = cell_size * (this.data.saved_tetramino.current_state[i].x - 3)
+            let top = cell_size * (this.data.saved_tetromino.current_state[i].y + 1)
+            let left = cell_size * (this.data.saved_tetromino.current_state[i].x - 3)
             this.saved[i].style.top = `${top}px`
             this.saved[i].style.left = `${left}px`
         }
