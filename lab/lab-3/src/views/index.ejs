@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="icon" type="image/x-icon" href="./images/favicon/favicon.ico">
+    <link rel="stylesheet" href="./gulp-stylesheets/style.css">
+    <link rel="stylesheet" href="./javascripts/jquery-ui-1.13.2/jquery-ui.css">
+
+    <script src="https://kit.fontawesome.com/f998dd3fc4.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./javascripts/jquery-ui-1.13.2/jquery-ui.js"></script>
+    <script src="./index.bundle.js"></script>
+
+    <title>MУKA</title>
+</head>
+<body>
+
+<%- include("./header") %>
+
+<div id="ContentFrame" class="ContentFrame">
+    <div id="UserListFrame" class="UserListFrame">
+        <% for (let item of users_list) { %>
+            <%- include("./usercard", item) %>
+        <% } %>
+    </div>
+    <div id="SelectedUserFrame" class="SelectedUserFrame">
+        <% if (locals.selected_user !== undefined) { %>
+            <%- include("./selecteduser", {news_list: news_list, ...selected_user}) %>
+        <% } else { %>
+            <div class="UserDummy">
+                <div class="centred">User not selected</div>
+            </div>
+        <% } %>
+    </div>
+</div>
+</body>
+
+</html>

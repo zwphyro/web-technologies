@@ -30,7 +30,7 @@ function compare(left, right)
 let names_element = document.getElementById("names")
 let scores_element = document.getElementById("scores")
 
-for (let i = 0; i < Math.min(10, score_table.length); i++)
+for (let i = 0; i < Math.min(5, score_table.length); i++)
 {
     let current_name = document.createElement("div")
     current_name.setAttribute("class", "name_text")

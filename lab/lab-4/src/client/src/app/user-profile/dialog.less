@@ -1,0 +1,106 @@
+@bg_color: #11171F;
+@main_color: #556379;
+@support_color: #FFF0EC;
+@accent_color: #FF5119;
+@text_color: white;
+
+:host
+{
+    display: block;
+    background: @bg_color;
+    border-radius: 20px;
+    width: 300px;
+    height: 300px;
+    padding: 8px 16px 16px;
+}
+
+.EditForm
+{
+}
+
+.EmailInput,
+.PasswordInput,
+.FirstNameInput,
+.LastNameInput,
+.DateOfBirthInput
+{
+    width: 260px;
+    height: 30px;
+}
+
+.EmailInput,
+.PasswordInput,
+.FirstNameInput,
+.LastNameInput,
+.DateOfBirthInput,
+.EditButton,
+.CancelButton
+{
+    top: 3px;
+    border: 3px solid @main_color;
+    border-radius: 20px;
+    background-color: @text_color;
+    color: @bg_color;
+    font-size: 16px;
+    font-family: Roboto;
+    font-weight: 400;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.PasswordInput
+{
+    top: 53px;
+}
+
+.FirstNameInput
+{
+    top: 103px;
+}
+
+.LastNameInput
+{
+    top: 153px;
+}
+
+.DateOfBirthInput
+{
+    top: 203px;
+}
+
+.EditButton
+{
+    position: absolute;
+    left: 17px;
+    top: 263px;
+    height: 30px;
+    width: 128px;
+    cursor: pointer;
+}
+
+.EditButton:enabled:hover
+{
+    border-color: @accent_color;
+}
+
+.EditButton:disabled
+{
+    color: @main_color;
+    cursor: not-allowed;
+}
+
+.CancelButton
+{
+    position: absolute;
+    right: 17px;
+    top: 263px;
+    height: 30px;
+    width: 128px;
+    cursor: pointer;
+}
+
+.CancelButton:hover
+{
+    border-color: @accent_color;
+}
+

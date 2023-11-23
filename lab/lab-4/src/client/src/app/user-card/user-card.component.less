@@ -1,0 +1,75 @@
+@bg_color: #11171F;
+@main_color: #556379;
+@support_color: #FFF0EC;
+@accent_color: #FF5119;
+@text_color: white;
+
+.UserCardFrame
+{
+    width: 100%;
+    height: 110px;
+    position: relative;
+}
+
+.UserCardBg
+{
+    width: 100%;
+    top: 0;
+    bottom: 10px;
+    position: absolute;
+    background: @main_color;
+    border-radius: 20px;
+}
+
+.UserProfilePicture
+{
+    overflow: clip;
+    width: 80px;
+    height: 80px;
+    left: 20px;
+    top: 10px;
+    position: absolute;
+    background: @support_color;
+    border-radius: 9999px;
+}
+
+.UserFirstName
+{
+    overflow-x: clip;
+    width: 230px;
+    height: 30px;
+    left: 110px;
+    top: 20px;
+    position: absolute;
+    color: @text_color;
+    font-size: 25px;
+    font-family: Roboto;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.UserLastName
+{
+    overflow-x: clip;
+    width: 230px;
+    height: 30px;
+    left: 110px;
+    top: 50px;
+    position: absolute;
+    color: @text_color;
+    font-size: 25px;
+    font-family: Roboto;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.EnterButton
+{
+    width: 30px;
+    height: 30px;
+    right: 20px;
+    top: 35px;
+    position: absolute;
+    background: @text_color;
+    border-radius: 9999px;
+}

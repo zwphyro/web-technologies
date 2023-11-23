@@ -1,0 +1,28 @@
+<app-left-menu></app-left-menu>
+<div class="ContentFrame">
+    <div class="UsersList">
+        <div *ngIf="!only_friends">
+            <div *ngFor="let item of users">
+                <app-user-card [user]="item"></app-user-card>
+            </div>
+        </div>
+        <div *ngIf="only_friends">
+            <div *ngFor="let item of friends">
+                <app-user-card [user]="item"></app-user-card>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!only_friends" class="Button clickable" (click)="only_friends = !only_friends">
+        <div class="ButtonBg"></div>
+        <div class="ButtonText centred">
+            Only friends
+        </div>
+    </div>
+    <div *ngIf="only_friends" class="Button clickable" (click)="only_friends = !only_friends">
+        <div class="ButtonBg"></div>
+        <div class="ButtonText centred">
+            All users
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,21 @@
+<div class="HelloFrame">
+    <div class="centred" style="width: inherit">
+        <span class="HelloText">First time?<br/>Tell us a lil' bit about </span><span
+            class="HelloText" style="color: #FF5119">y</span><span class="HelloText">ou!</span>
+    </div>
+</div>
+<form class="HelloForm" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input id="EmailInput" formControlName="email" type="email" class="EmailInput centred-horizontal"
+           placeholder="Email">
+    <input id="PasswordInput" formControlName="password" type="password" class="PasswordInput centred-horizontal"
+           placeholder="Password">
+    <input id="FirstNameInput" formControlName="first_name" class="FirstNameInput centred-horizontal"
+           placeholder="First name">
+    <input id="LastNameInput" formControlName="last_name" class="LastNameInput centred-horizontal"
+           placeholder="Last name">
+    <input id="DateOfBirthInput" formControlName="date_of_birth" type="date" class="DateOfBirthInput centred-horizontal"
+           placeholder="Date of birth">
+    <button type="submit" class="LogInButton centred-horizontal" [disabled]="form.invalid">
+        Register
+    </button>
+</form>

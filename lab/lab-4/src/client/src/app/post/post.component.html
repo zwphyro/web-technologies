@@ -1,0 +1,13 @@
+<div class="PostFrame">
+    <div class="PostBg"></div>
+    <div class="PostUserAvatar" (click)="openProfile()">
+        <img src='{{post_info.profile_picture_url?.replace(".", "https://localhost:3000")}}' alt="user_pfp"
+             width="100%">
+    </div>
+    <div class="PostUserFullName" (click)="openProfile()">{{post_info.first_name}} {{post_info.last_name}}</div>
+    <div style="position: relative; z-index: -2; height: 60px; width: 100%"></div>
+    <div class="PostContent">
+        {{post_info.content}}
+    </div>
+    <div style="position: relative; z-index: -2; height: 20px; width: 100%"></div>
+</div>

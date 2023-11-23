@@ -1,0 +1,18 @@
+<div class="HelloFrame">
+    <div class="centred" style="width: inherit">
+        <span class="HelloText">Hello!<br/>Welcome to M</span><span
+            class="HelloText" style="color: #FF5119">Y</span><span class="HelloText">KA</span>
+    </div>
+</div>
+<form class="HelloForm" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input id="EmailInput" formControlName="email" type="email" class="EmailInput centred-horizontal"
+           placeholder="Email" (input)="onInput()">
+    <input id="PasswordInput" formControlName="password" type="password" class="PasswordInput centred-horizontal"
+           placeholder="Password" (input)="onInput()">
+    <button type="submit" class="LogInButton centred-horizontal" [disabled]="form.invalid">
+        Log in/Proceed to register
+    </button>
+</form>
+<div *ngIf="error_message_enabled" class="ErrorMessage">
+    Wrong email or password
+</div>

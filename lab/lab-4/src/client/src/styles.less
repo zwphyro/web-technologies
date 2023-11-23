@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face
+{
+    font-family: "Lilita One";
+    src: local("Lilita One"), url("./assets/fonts/LilitaOne-Regular.ttf");
+}
+
+@font-face
+{
+    font-family: "Roboto";
+    src: local("Roboto"), url("./assets/fonts/Roboto-Regular.ttf");
+}
+
+.centred
+{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.centred-horizontal
+{
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: absolute;
+}
+
+.centred-vertical
+{
+    top: 50%;
+    transform: translate(0, -50%);
+    position: absolute;
+}
+
+.clickable
+{
+    cursor: pointer;
+}
+
+.clickable:hover
+{
+    border: 2px solid @bg_color;
+    border-radius: 20px;
+}
+
+@bg_color: #11171F;
+@main_color: #556379;
+@support_color: #FFF0EC;
+@accent_color: #FF5119;
+@text_color: white;
+
+body
+{
+    background: @bg_color;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

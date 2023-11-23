@@ -1,0 +1,21 @@
+<app-left-menu></app-left-menu>
+<div class="ContentFrame">
+    <div class="WritePost">
+        <div class="WritePostBg"></div>
+        <div style="padding: 10px 40px 10px 20px;">
+            <textarea id="InputField" class="InputField" (keyup)="resizeInput($event)"
+                      placeholder="Feel free to write something for your subscribers!"></textarea>
+        </div>
+        <div class="WritePostButton clickable" (click)="sendMessage()">
+            <div class="ButtonBg"></div>
+            <div class="ButtonText centred">
+                Send message
+            </div>
+        </div>
+    </div>
+    <div class="MessagesContainer">
+        <div *ngFor="let item of messages">
+            <app-post [post_info]="item"></app-post>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<app-left-menu></app-left-menu>
+<div class="ContentFrame">
+    <div class="SelectedUserHeaderFrame">
+        <div class="SelectedUserHeaderBottomFrame">
+            <div class="SelectedUserHeaderBg"></div>
+            <div class="UserCardFirstName">
+                {{user?.first_name}}
+            </div>
+            <div class="UserCardLastName">
+                {{user?.last_name}}
+            </div>
+
+            <div *ngIf="is_owner" id="EditProfileButton" class="UpperButton clickable" (click)="editProfile()">
+                <div class="ButtonBg"></div>
+                <div class="ButtonText centred">
+                    Edit profile
+                </div>
+            </div>
+            <div *ngIf="is_respondent && is_subscriber" id="WriteMessageButton" class="UpperButton clickable"
+                 (click)="writeMessage()">
+                <div class="ButtonBg"></div>
+                <div class="ButtonText centred">
+                    Write a message
+                </div>
+            </div>
+
+            <div *ngIf="!is_subscriber && !is_owner" id="AddFriendButton" class="BottomButton clickable"
+                 (click)="addFriend()">
+                <div class="ButtonBg"></div>
+                <div class="ButtonText centred">
+                    Subscribe
+                </div>
+            </div>
+            <div *ngIf="is_subscriber" id="RemoveFriendButton" class="BottomButton clickable" (click)="removeFriend()">
+                <div class="ButtonBg"></div>
+                <div class="ButtonText centred">
+                    Delete from friends
+                </div>
+            </div>
+            <div *ngIf="is_owner" id="LogOutButton" class="BottomButton clickable" (click)="logOut()">
+                <div class="ButtonBg"></div>
+                <div class="ButtonText centred">
+                    Log out
+                </div>
+            </div>
+
+            <div class="SelectedUserAvatar">
+                <img src='{{user?.profile_picture_url?.replace(".", "https://localhost:3000")}}'
+                     alt="user_pfp" width="100%">
+            </div>
+            <div *ngIf="is_owner" class="AvatarChoose" (click)="changePhoto()">
+                <i class="fa-solid fa-plus fa-2xl centred"></i>
+                <div class="AvatarChooseBg" style="opacity: 50%"></div>
+            </div>
+            <input id="choose_file" type="file" hidden="hidden" (input)="sendFile()">
+        </div>
+    </div>
+    <div class="SelectedUserContentFrame">
+        <cdk-accordion *ngIf="is_subscriber && is_respondent || is_owner" class="Accordion">
+            <cdk-accordion-item #accordionItem="cdkAccordionItem"
+                                class="AccordionItem"
+                                role="button"
+                                tabindex="0">
+                <div class="AccordionItemHeader" (click)="accordionItem.toggle()">
+                    Personal info
+                    <span class="AccordionItemDescription">
+                        <i *ngIf="accordionItem.expanded" class="fa-solid fa-angle-down"></i>
+                        <i *ngIf="!accordionItem.expanded" class="fa-solid fa-angle-right"></i>
+                    </span>
+                </div>
+                <div class="AccordionItemBody" [style.display]="accordionItem.expanded ? '' : 'none'">
+                    Date of Birth: {{date_string}} <br>
+                    Email: {{user?.email}}
+                </div>
+            </cdk-accordion-item>
+        </cdk-accordion>
+        <div *ngIf="is_owner" class="WritePost">
+            <div class="WritePostBg"></div>
+            <div style="padding: 10px 40px 10px 20px;">
+                <textarea id="InputField" class="InputField" (keyup)="resizeInput($event)"
+                          placeholder="Feel free to write something for your subscribers!"></textarea>
+            </div>
+            <div class="WritePostButton clickable" (click)="createPost()">
+                <div class="ButtonBg"></div>
+                <div class="ButtonText centred">
+                    Create post
+                </div>
+            </div>
+        </div>
+        <app-news-list [feed_list]="news"></app-news-list>
+    </div>
+</div>

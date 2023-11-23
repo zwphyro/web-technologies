@@ -1,0 +1,276 @@
+@bg_color: #11171F;
+@main_color: #556379;
+@support_color: #FFF0EC;
+@accent_color: #FF5119;
+@text_color: white;
+
+.ContentFrame
+{
+    min-width: 625px;
+    left: 410px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.SelectedUserHeaderFrame
+{
+    width: 100%;
+    height: 215px;
+    position: absolute;
+}
+
+.SelectedUserHeaderBottomFrame
+{
+    width: 100%;
+    height: 90px;
+    bottom: 0;
+    position: absolute;
+}
+
+.SelectedUserHeaderBg
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: @main_color;
+    border-radius: 20px;
+}
+
+.UserCardFirstName
+{
+    overflow-x: clip;
+    height: 30px;
+    left: 272px;
+    right: 190px;
+    top: 10px;
+    position: absolute;
+    color: @text_color;
+    font-size: 30px;
+    font-family: Roboto;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.UserCardLastName
+{
+    height: 30px;
+    left: 272px;
+    right: 190px;
+    bottom: 10px;
+    position: absolute;
+    color: @text_color;
+    font-size: 30px;
+    font-family: Roboto;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.UpperButton
+{
+    width: 155px;
+    height: 30px;
+    right: 40px;
+    top: 10px;
+    position: absolute;
+    border-radius: 20px;
+}
+
+.ButtonBg
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: @text_color;
+    border-radius: 20px;
+}
+
+.BottomButton
+{
+    width: 155px;
+    height: 30px;
+    right: 40px;
+    bottom: 10px;
+    position: absolute;
+    border-radius: 20px;
+}
+
+.ButtonText
+{
+    text-align: center;
+    position: relative;
+    color: @bg_color;
+    font-size: 16px;
+    font-family: Roboto;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.SelectedUserAvatar
+{
+    overflow: clip;
+    top: 50%;
+    left: 40px;
+    transform: translate(0, -50%);
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: @support_color;
+    border-radius: 9999px;
+    border: 5px solid #556379;
+}
+
+.AvatarChoose
+{
+    top: 50%;
+    left: 45px;
+    transform: translate(0, -50%);
+    position: absolute;
+    opacity: 0;
+}
+
+.AvatarChoose:hover
+{
+    opacity: 100%;
+}
+
+.AvatarChooseBg
+{
+    opacity: 50;
+    width: 200px;
+    height: 200px;
+    background: @bg_color;
+    border-radius: 9999px;
+}
+
+.EditButton
+{
+    width: 30px;
+    height: 30px;
+    right: 0;
+    top: 234px;
+    position: absolute;
+    background: @text_color;
+    border-radius: 9999px;
+}
+
+.SelectedUserContentFrame
+{
+    width: 100%;
+    top: 285px;
+    bottom: 0;
+    position: absolute;
+
+}
+
+.Accordion
+{
+    position: relative;
+    width: 100%;
+}
+
+.AccordionItem
+{
+    display: block;
+    border: solid 1px #ccc;
+    border-radius: 20px;
+    background-color: @text_color;
+}
+
+.AccordionItem + .AccordionItem
+{
+    border-top: none;
+}
+
+.AccordionItemHeader
+{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.AccordionItemDescription
+{
+    font-size: 0.85em;
+    color: inherit;
+}
+
+.AccordionItemHeader,
+.AccordionItemBody
+{
+    padding: 16px;
+}
+
+.AccordionItemHeader:hover
+{
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: @main_color;
+    color: @text_color;
+}
+
+.WritePost
+{
+    padding-top: 10px;
+    padding-bottom: 36px;
+    left: 0;
+    right: 0;
+    position: relative;
+}
+
+.WritePostBg
+{
+    z-index: -1;
+    width: 100%;
+    top: 10px;
+    bottom: 0;
+    border-radius: 20px;
+    position: absolute;
+    background-color: @main_color;
+}
+
+.InputField
+{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    color: @bg_color;
+    background-color: @text_color;
+    position: relative;
+    text-align: justify;
+    resize: none;
+    outline: none;
+    font-size: 16px;
+    font-family: Roboto;
+    font-weight: 500;
+    word-wrap: break-word;
+
+}
+
+.InputField:focus
+{
+    border: 2px @bg_color solid;
+}
+
+.InputField::-webkit-scrollbar
+{
+    width: 0;
+}
+
+.WritePostButton
+{
+    width: 155px;
+    height: 30px;
+    right: 20px;
+    bottom: 10px;
+    position: absolute;
+    border-radius: 20px;
+}
+
+.WritePostButton:disabled
+{
+    color: @main_color;
+    cursor: not-allowed;
+}

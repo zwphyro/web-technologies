@@ -1,0 +1,111 @@
+@bg_color: #11171F;
+@main_color: #556379;
+@support_color: #FFF0EC;
+@accent_color: #FF5119;
+@text_color: white;
+
+.HelloFrame
+{
+    width: 100%;
+    min-width: 500px;
+    height: 340px;
+    position: absolute;
+    text-align: center
+}
+
+.HelloText
+{
+    color: white;
+    font-size: 96px;
+    font-family: Lilita One;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.HelloForm
+{
+    position: absolute;
+    top: 340px;
+    bottom: 0;
+    width: 100%;
+}
+
+.EmailInput,
+.PasswordInput,
+.FirstNameInput,
+.LastNameInput,
+.DateOfBirthInput
+{
+    width: 360px;
+    height: 30px;
+}
+
+.EmailInput,
+.PasswordInput,
+.FirstNameInput,
+.LastNameInput,
+.DateOfBirthInput,
+.LogInButton
+{
+    border: 5px solid @main_color;
+    border-radius: 20px;
+    background-color: @text_color;
+    color: @bg_color;
+    font-size: 24px;
+    font-family: Roboto;
+    font-weight: 400;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.PasswordInput
+{
+    top: 50px;
+}
+
+.FirstNameInput
+{
+    top: 100px;
+}
+
+.LastNameInput
+{
+    top: 150px;
+}
+
+.DateOfBirthInput
+{
+    top: 200px;
+}
+
+.LogInButton
+{
+    top: 260px;
+    height: 50px;
+    width: 310px;
+    cursor: pointer;
+}
+
+.LogInButton:enabled:hover
+{
+    border-color: @accent_color;
+}
+
+.LogInButton:disabled
+{
+    color: @main_color;
+    cursor: not-allowed;
+}
+
+.ErrorMessage
+{
+    top: 300px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    color: @accent_color;
+    font-size: 24px;
+    font-family: Roboto;
+    font-weight: 400;
+    word-wrap: break-word;
+}

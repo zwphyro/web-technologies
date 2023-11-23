@@ -1,0 +1,5 @@
+<div id="NewsList" class="NewsList">
+    <div *ngFor="let item of feed_list">
+        <app-post *ngIf="item.status != 'blocked'" [post_info]="item"></app-post>
+    </div>
+</div>

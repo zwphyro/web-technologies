@@ -1,0 +1,121 @@
+@bg_color: #11171F;
+@main_color: #556379;
+@support_color: #FFF0EC;
+@accent_color: #FF5119;
+@text_color: white;
+
+.ContentFrame
+{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column-reverse;
+    min-width: 625px;
+    left: 410px;
+    right: 0;
+    top: 10px;
+    bottom: 0;
+    position: absolute;
+}
+
+.WritePost
+{
+    width: 100%;
+    bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 36px;
+    left: 0;
+    right: 0;
+    position: relative;
+}
+
+.WritePostBg
+{
+    z-index: -1;
+    width: 100%;
+    top: 10px;
+    bottom: 0;
+    border-radius: 20px;
+    position: absolute;
+    background-color: @main_color;
+}
+
+.InputField
+{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    color: @bg_color;
+    background-color: @text_color;
+    position: relative;
+    text-align: justify;
+    resize: none;
+    outline: none;
+    font-size: 16px;
+    font-family: Roboto;
+    font-weight: 500;
+    word-wrap: break-word;
+
+}
+
+.InputField:focus
+{
+    border: 2px @bg_color solid;
+}
+
+.InputField::-webkit-scrollbar
+{
+    width: 0;
+}
+
+.WritePostButton
+{
+    width: 155px;
+    height: 30px;
+    right: 20px;
+    bottom: 10px;
+    position: absolute;
+    border-radius: 20px;
+}
+
+.WritePostButton:disabled
+{
+    color: @main_color;
+    cursor: not-allowed;
+}
+
+.ButtonBg
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: @text_color;
+    border-radius: 20px;
+}
+
+.ButtonText
+{
+    text-align: center;
+    position: relative;
+    color: @bg_color;
+    font-size: 16px;
+    font-family: Roboto;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.MessagesContainer
+{
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    position: relative;
+}
+
+.MessagesContainer::-webkit-scrollbar
+{
+    width: 0;
+}

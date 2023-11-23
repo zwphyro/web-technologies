@@ -1,0 +1,95 @@
+<div class="SelectedUserHeaderFrame">
+    <div class="SelectedUserHeaderBottomFrame">
+        <div class="SelectedUserHeaderBg"></div>
+        <div class="UserCardFirstName">
+            <%= first_name %>
+        </div>
+        <div class="UserCardLastName">
+            <%= last_name %>
+        </div>
+        <div id="FeedButton" class="FeedButton clickable">
+            <div class="FeedButtonBg"></div>
+            <div class="ButtonText">
+                Feed
+            </div>
+        </div>
+        <div id="FriendsButton" class="FriendsButton clickable">
+            <div class="FriendsButtonBg"></div>
+            <div class="ButtonText">
+                Friends
+            </div>
+        </div>
+        <img class="SelectedUserAvatar" src="<%= profile_picture_url %>" alt="user_pfp" width="100%" height="100%">
+    </div>
+    <div class="SelectMenu">
+        <div class="SelectedUserRole">
+            <label for="SelectedUserRole"></label>
+            <select name="role" id="SelectedUserRole">
+                <option value="administrator" <% if (role === "administrator") { %>selected="selected"
+                        <% } %>
+                >Administrator
+                </option>
+                <option value="user" <% if (role === "user") { %>selected="selected"
+                        <% } %>
+                >User
+                </option>
+            </select>
+        </div>
+        <div class="SelectedUserStatus">
+            <label for="SelectedUserStatus"></label>
+            <select name="status" id="SelectedUserStatus">
+                <option value="active" <% if (status === "active") { %>selected="selected"
+                        <% } %>
+                >Active
+                </option>
+                <option value="unverified" <% if (status === "unverified") { %>selected="selected"
+                        <% } %>
+                >Unverified
+                </option>
+                <option value="blocked" <% if (status === "blocked") { %>selected="selected"
+                        <% } %>
+                >Blocked
+                </option>
+            </select>
+        </div>
+    </div>
+    <div id="EditButton" class="EditButton clickable">
+        <i class="fa-solid fa-user-pen centred"></i>
+    </div>
+</div>
+<div class="SelectedUserContentFrame">
+    <div id="SelectedUserPersonalInfo" class="SelectedUserPersonalInfo">
+        <h3 class="SelectedUserPersonalInfoHeader">Personal info</h3>
+        <% let parse_date = new Date(date_of_birth) %>
+        <% let month = parse_date.getMonth() + 1; let date = parse_date.getDate(); let year = parse_date.getFullYear() %>
+        <% let date_string = `${month}/${date}/${year}` %>
+        <div class="SelectedUserPersonalInfoData">
+            Date of Birth: <%= month %>/<%= date %>/<%= year %><br>
+            Email: <%= email %>
+        </div>
+    </div>
+    <div id="NewsList" class="NewsList">
+        <% for (let item of news_list) { %>
+            <%- include("./post", item) %>
+        <% } %>
+    </div>
+    <div id="EditDialog" title="Edit user data">
+        <ul style="list-style: none">
+            <li>
+                First name: <input id="EditFirstName" value="<%= first_name %>">
+            </li>
+            <li>
+                Last name: <input id="EditLastName" value="<%= last_name %>">
+            </li>
+            <li>
+                Date of birth: <input id="EditDateOfBirth" value="<%= date_string %>">
+            </li>
+            <li>
+                Email: <input id="EditEmail" value="<%= email %>">
+            </li>
+            <li>
+                <input id="EditConfirm" value="Submit" style="width: 100px; left: 50%; transform: translate(-50%, 0)">
+            </li>
+        </ul>
+    </div>
+</div>

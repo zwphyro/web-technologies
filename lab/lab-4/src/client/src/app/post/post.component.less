@@ -1,0 +1,63 @@
+@bg_color: #11171F;
+@main_color: #556379;
+@support_color: #FFF0EC;
+@accent_color: #FF5119;
+@text_color: white;
+
+.PostFrame
+{
+    left: 0;
+    right: 0;
+    width: 100%;
+    position: relative;
+    min-height: 110px;
+}
+
+.PostBg
+{
+    width: 100%;
+    top: 10px;
+    bottom: 0;
+    position: absolute;
+    background: @main_color;
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.PostUserAvatar
+{
+    overflow: clip;
+    top: 20px;
+    left: 20px;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: @support_color;
+    border-radius: 9999px;
+}
+
+.PostUserFullName
+{
+    position: absolute;
+    left: 120px;
+    top: 30px;
+    color: @text_color;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.PostContent
+{
+    margin-left: 120px;
+    margin-right: 40px;
+    position: relative;
+    width: auto;
+    color: @text_color;
+    font-size: 16px;
+    font-family: Roboto;
+    font-weight: 400;
+    word-wrap: break-word;
+    text-align: justify;
+}

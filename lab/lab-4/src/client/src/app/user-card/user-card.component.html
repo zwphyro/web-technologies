@@ -1,0 +1,18 @@
+<div class="UserCardFrame" (click)="openProfile()">
+    <div class="UserCardBg"></div>
+    <div class="UserProfilePicture">
+        <img src='{{user.profile_picture_url?.replace(".", "https://localhost:3000")}}'
+             alt="user_pfp" width="100%">
+    </div>
+    <div class="UserFirstName">
+        {{user.first_name}}
+    </div>
+    <div class="UserLastName">
+        {{user.last_name}}
+    </div>
+    <div class="EnterButton clickable">
+        <i *ngIf="location.pathname !== '/' + localStorage['myka.user_id']"
+           class="fa-regular fa-circle-user centred"></i>
+        <i *ngIf="location.pathname === '/' + localStorage['myka.user_id']" class="fa-solid fa-circle-user centred"></i>
+    </div>
+</div>

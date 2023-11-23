@@ -1,0 +1,18 @@
+<div id="LeftMenuFrame" class="LeftMenuFrame">
+    <app-user-card [user]="user"></app-user-card>
+    <div class="Button clickable" (click)="openUsers()">
+        <div class="ButtonBg">
+            <div class="ButtonText centred">
+                Users
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="user.role === 'administrator'" class="Button clickable" (click)="openAdminModule()">
+        <div class="ButtonBg">
+            <div class="ButtonText centred">
+                Admin Module
+            </div>
+        </div>
+    </div>
+</div>
